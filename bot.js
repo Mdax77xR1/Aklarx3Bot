@@ -8,7 +8,6 @@ const { Client, Util } = require('discord.js');
 const UserBlocked = new Set();  
 const jimp = require('jimp');   
 const math = require('math-expression-evaluator'); 
-const figlet = require('figlet'); 
 const queue = new Map(); 
 const zalgo = require('zalgolize');   
 const fetchVideoInfo = require('youtube-info');
