@@ -138,6 +138,19 @@ if (message.content.startsWith(prefix + 'help')) {
     }
 });
 
+
+
+client.on('ready', () => {
+    client.user.setGame(`Aklar3x Bot -help`,'https://www.twitch.tv/MeeRcY')
+
+});
+
+
+
+
+
+
+
 client.on('message' , message => {
   var prefix = "-";
   if(message.author.bot) return;
