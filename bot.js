@@ -1,6 +1,4 @@
 const Discord = require('discord.js');  
-const db = require('quick.db');  
-const hastebin = require('hastebin-gen');  
 const client = new Discord.Client();    
 const Canvas = require('canvas');        
 const fs = require("fs"); 
@@ -10,7 +8,6 @@ const { Client, Util } = require('discord.js');
 const UserBlocked = new Set();  
 const jimp = require('jimp');   
 const math = require('math-expression-evaluator'); 
-const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet'); 
 const queue = new Map(); 
 const zalgo = require('zalgolize');   
