@@ -48,7 +48,6 @@ if (message.content.startsWith(prefix + 'help')) {
     ✴ -say =====> The Bot Say Any Thing | تكرار اي شي كتبتو
     ✴ -image ===> To Show Image Of Server | لاضهار صورة السيرف 
     ✴ -contact => To Contact Owners Bot | مراسلة صاحب البوت
-    ✴ -embed ===> To Embed | لتكرار اي شي كتبتو بطريقة حلوة
     ✴ -avatar ==> Your Avatar | صورتك الشخصية
     ✴ -support => Server Support | سيرفر الدعم الفني
      ===========================================================
@@ -2127,4 +2126,51 @@ client.on("message", message => {
 });
 
 // THIS  MUST  BE  THIS  WAY
+
+
+
+
+
+
+
+
+client.on('message', message => {
+
+  if (message.author.bot) return;
+
+  if (!message.content.startsWith(prefix)) return;
+
+
+  let command = message.content.split(" ")[0];
+
+  command = command.slice(prefix.length);
+
+
+  let args = message.content.split(" ").slice(1);
+
+if (command == "say") {
+
+    let say = new Discord.RichEmbed()
+
+    .setDescription(args.join(" "))
+
+    .setColor(0x23b2d6)
+
+    message.channel.sendEmbed(say);
+
+    message.delete();
+
+  }
+
+
+
+});
+
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
