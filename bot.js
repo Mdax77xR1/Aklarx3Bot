@@ -148,7 +148,7 @@ if (message.content.startsWith(prefix + 'help')) {
 
 
 client.on('ready', () => {
-    client.user.setGame(`Aklar3x Bot -help`,'https://www.twitch.tv/MeeRcY')
+    client.user.setGame(`Treads Bot -help`,'https://www.twitch.tv/MeeRcY')
 
 });
 
