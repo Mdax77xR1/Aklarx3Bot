@@ -2148,7 +2148,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-if (command == "say") {
+if (command == "Esay") {
 
     let say = new Discord.RichEmbed()
 
@@ -2165,9 +2165,6 @@ if (command == "say") {
 
 
 });
-
-
-
 
 
 
