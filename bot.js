@@ -78,7 +78,7 @@ if (message.content.startsWith(prefix + 'help')) {
     ❖ -kv @user => Voice Kick | يطرد شخص من الرووم
     ❖ -vonline => Create Channel Voice Online | يسوي رووم فويس اونلاين
      ===========================================================
-     ✴ Bot By : Majed . 
+     ✴ Bot By N4waF
      ✴ Have Fun. 
      ===========================================================
       React With ▶ To See Games Commands`,
