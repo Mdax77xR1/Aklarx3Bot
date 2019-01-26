@@ -2167,7 +2167,43 @@ if (command == "say") {
 });
 
 
+client.on("message", message => { 
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
+let prefix = '-'; 
+let messagearray = message.content.split(" ");
+let rank = message.guild.member(message.author).roles.find('name', 'Warner');
 
+let cmd = messagearray[0];
+let args = messagearray.slice(1);
+if(cmd === `${prefix}warn`){
+
+  if (!rank) return message.channel.send('**You Dont Have Perm**');
+  let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+if(!rUser) return message.channel.send("**Couldn't find user**");
+    let reason = args.join(" ").slice(22);
+    if(!reason) return message.channel.send('**What Is The Reason**');
+
+    let reportembed = new Discord.RichEmbed()
+    .setTitle('~~~~~~~~~~~~~~~New Warn~~~~~~~~~~~~~~~')
+    .setThumbnail(`${message.author.avatarURL}`)
+    .setColor("BLACK")
+    .addField("Warned User", `[${rUser}]`)
+    .addField("Warned By", `[${message.author}]`)
+    .addField("Channel", `[${message.channel}]`)
+    .addField("Reason",`[${reason}]`)
+    
+    
+    let WarnChannel = message.guild.channels.find(`name`,"warn-log");
+    
+    message.delete().catch(O_o=>{});
+    WarnChannel.send(reportembed);
+    let role12 = message.guild.roles.find('name', 'warn');
+    rUser.addRole(role12);
+    
+        return;
+    }
+    });
 
 
 client.login(process.env.BOT_TOKEN);
