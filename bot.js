@@ -2172,7 +2172,7 @@ client.on("message", message => {
   if(message.channel.type === 'dm') return;
 let prefix = '-'; 
 let messagearray = message.content.split(" ");
-let rank = message.guild.member(message.author).roles.find('name', 'Warner');
+let rank = message.guild.member(message.author).roles.find('name', 'Staff');
 
 let cmd = messagearray[0];
 let args = messagearray.slice(1);
