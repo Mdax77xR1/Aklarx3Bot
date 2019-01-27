@@ -2176,7 +2176,7 @@ let rank = message.guild.member(message.author).roles.find('name', 'Staff');
 
 let cmd = messagearray[0];
 let args = messagearray.slice(1);
-if(cmd === ${prefix}warn){
+if(cmd === `${prefix}warn`){
 
   if (!rank) return message.channel.send('You Dont Have Perm');
   let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -2212,6 +2212,4 @@ if(cmd === ${prefix}warn){
         return;
     }
     }); 
-
-
 client.login(process.env.BOT_TOKEN);
