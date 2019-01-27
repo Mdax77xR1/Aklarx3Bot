@@ -2170,7 +2170,7 @@ client.on('message', message => {
     var p = message.mentions.members.first();
     var reason = message.content.split(" ").slice(2).join(' ');
     var log = message.guild.channels.find('name', 'log');
-    if(message.content.startsWith(`${prefix}warn`)){
+    if(message.content.startsWith("-warn")){
         if(!p) return message.reply(`**Mention the user!**`);
         if(!reason) return message.reply(`**Spofic a reason!**`);
         if(!p.bannable) return message.reply(`**I can't ban a staff member!**`);
