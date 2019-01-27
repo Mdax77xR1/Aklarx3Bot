@@ -2166,50 +2166,35 @@ if (command == "say") {
 
 });
 
-
- client.on("message", message => { 
-  if(message.author.bot) return;
- var reason = message.content.split(" ").slice(2).join(' ')
-if(message.channel.type === 'dm') return;
-let messagearray = message.content.split(" ");
-let rank = message.guild.member(message.author).roles.find('name', 'Staff');
-
-let cmd = messagearray[0];
-let args = messagearray.slice(1);
-if(cmd === `${prefix}warn`){
-
-  if (!rank) return message.channel.send('You Dont Have Perm');
-  let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    f(!p) return message.reply(**Mention the user!**);
-    if(!reason) return message.reply(**Spofic a reason!**)
-    if(!p.bannable) return message.reply(**I can't ban a staff member!**);
-       reason = reason.replace('0', "نشر في الخاص");
+client.on('message', message => {
+    var p = message.mentions.members.first();
+    var reason = message.content.split(" ").slice(2).join(' ');
+    var log = message.guild.channels.find('name', 'warn-log');
+    if(message.content.startsWith(${prefix}warn)){
+        if(!p) return message.reply(**Mention the user!**);
+        if(!reason) return message.reply(**Spofic a reason!**);
+        if(!p.bannable) return message.reply(**I can't ban a staff member!**);
+        reason = reason.replace('0', "نشر في الخاص");
         reason = reason.replace('1', "اسم غير لائق");
         reason = reason.replace('2', "صوره غير لائقه");
         reason = reason.replace('3', "سب الاهل");
-        reason = reason.replace('4', "عنصريه");
-        reason = reason.replace('5', "جلب أعضاء غير حقيقية");
+        reason = reason.replace('4', "سب الذات الاهيه");
+        reason = reason.replace('5', "مخالفه القوانين مع اخذ اكثر من تحذير");
         reason = reason.replace('6', "سبام في الشات");
-
-
-    let reportembed = new Discord.RichEmbed()
-    .setTitle('SomeOne Have Been Warned')
-    .setThumbnail(${message.author.avatarURL})
-    .setColor("RED")
-    .addField("Warned User", [${rUser}])
-    .addField("Warned By", [${message.author}])
-    .addField("Channel", [${message.channel}])
-    .addField("Reason",[${reason}])
-
-
-    let WarnChannel = message.guild.channels.find(name,"warn-log");
-
-    message.delete().catch(O_o=>{});
-    WarnChannel.send(reportembed);
-    let role12 = message.guild.roles.find('name', 'warn');
-    rUser.addRole(role12);
-
-        return;
+        reason = reason.replace('7', "استخدام بعض الاوامر بشكل مسبب للإضرار بالسيرفر");
+        reason = reason.replace('8', "جلب اعضاء مفبركين للسيرفر");
+        reason = reason.replace('9', "عنصريه");
+        var embed = new Discord.RichEmbed()
+        .setAuthor(User Warned!)
+        .addField(Name ♣, <@${p.id}>)
+        .addField(By ♣, <@${message.author.id}>)
+        .addField(Reason ♣, reason)
+        .setTimestamp()
+        .setColor("WHITE")
+        .setFooter(`)
+        message.channel.send(${p} ${reason}`)
+            message.delete();
+        log.send({embed});
     }
-    }); 
+});
 client.login(process.env.BOT_TOKEN);
