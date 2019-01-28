@@ -2174,13 +2174,13 @@ if (command == "say") {
 client.on("message", message => { 
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;
-let prefix = '^'; 
+let prefix = '-'; 
 let messagearray = message.content.split(" ");
 let rank = message.guild.member(message.author).roles.find('name', 'Staff');
 
 let cmd = messagearray[0];
 let args = messagearray.slice(1);
-if(cmd === ${prefix}warn){
+if(cmd === `${prefix}warn`){
 
   if (!rank) return message.channel.send('You Dont Have Perm');
   let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
