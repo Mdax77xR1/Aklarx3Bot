@@ -2195,7 +2195,7 @@ client.on("message", message => {
       .addField("Warned By", `[${message.author}]`)
       .addField("Channel", `[${message.channel}]`)
       .addField("Reason",`[${reason}]`)
-      .setFooter(`Edited By ; <@335484868479811584>`)
+      .setFooter(`Edited By ; .MďĄx77x 🚬#4461`)
       
       
       let WarnChannel = message.guild.channels.find(`name`,"warn-log");
